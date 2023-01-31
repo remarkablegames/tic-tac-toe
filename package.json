@@ -3,7 +3,12 @@
   "version": "1.0.0-alpha",
   "description": "Tic-tac-toe",
   "author": "Mark <mark@remarkablemark.org>",
-  "scripts": {},
+  "source": "src/index.html",
+  "scripts": {
+    "build": "parcel build",
+    "clean": "rm -rf .parcel-cache/ dist/",
+    "start": "parcel --open"
+  },
   "devDependencies": {
     "parcel": "^2.8.3"
   },
