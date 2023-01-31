@@ -1,0 +1,9 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0-alpha",
+  "description": "Tic-tac-toe",
+  "author": "Mark <mark@remarkablemark.org>",
+  "scripts": {},
+  "private": true,
+  "license": "MIT"
+}
