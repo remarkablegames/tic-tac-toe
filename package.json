@@ -4,6 +4,9 @@
   "description": "Tic-tac-toe",
   "author": "Mark <mark@remarkablemark.org>",
   "scripts": {},
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  },
   "private": true,
   "license": "MIT"
 }
