@@ -1,50 +1,57 @@
 import { Move } from './game';
 
-export default function TicTacToeBoard({ ctx, G, moves }) {
-  const onClick = (id) => moves[Move.ClickCell](id);
+const cellStyle = {
+  border: '1px solid #555',
+  width: '50px',
+  height: '50px',
+  lineHeight: '50px',
+  textAlign: 'center',
+};
 
-  let winner = '';
+export default function TicTacToeBoard({ ctx, G, moves }) {
+  let winner = <></>;
+
   if (ctx.gameover) {
     winner =
       ctx.gameover.winner !== undefined ? (
-        <div id="winner">Winner: {ctx.gameover.winner}</div>
+        <div>Winner: {ctx.gameover.winner}</div>
       ) : (
-        <div id="winner">Draw!</div>
+        <div>Draw!</div>
       );
   }
 
-  const cellStyle = {
-    border: '1px solid #555',
-    width: '50px',
-    height: '50px',
-    lineHeight: '50px',
-    textAlign: 'center',
-  };
+  const tbody = [];
 
-  let tbody = [];
   for (let i = 0; i < 3; i++) {
-    let cells = [];
+    const cells = [];
+
     for (let j = 0; j < 3; j++) {
       const id = 3 * i + j;
+
       cells.push(
         <td key={id}>
           {G.cells[id] ? (
             <div style={cellStyle}>{G.cells[id]}</div>
           ) : (
-            <button style={cellStyle} onClick={() => onClick(id)} />
+            <button
+              style={cellStyle}
+              onClick={() => moves[Move.ClickCell](id)}
+            />
           )}
         </td>
       );
     }
+
     tbody.push(<tr key={i}>{cells}</tr>);
   }
 
   return (
-    <div>
-      <table id="board">
+    <>
+      <table>
         <tbody>{tbody}</tbody>
       </table>
+
       {winner}
-    </div>
+    </>
   );
 }
