@@ -9,6 +9,7 @@
     "clean": "rm -rf .parcel-cache/ dist/",
     "start": "parcel --open"
   },
+  "homepage": "https://remarkablegames.org/tic-tac-toe/",
   "devDependencies": {
     "boardgame.io": "^0.50.2",
     "buffer": "^5.7.1",
