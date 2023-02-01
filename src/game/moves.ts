@@ -1,7 +1,7 @@
 import { INVALID_MOVE } from 'boardgame.io/core';
 
 export enum Move {
-  ClickCell = 'ClickCell',
+  ClickCell = 'clickCell',
 }
 
 export const moves = {
