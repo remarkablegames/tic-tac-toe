@@ -36,6 +36,7 @@ export default function TicTacToeBoard({ ctx, G, moves }) {
             <button
               style={cellStyle}
               onClick={() => moves[Move.ClickCell](id)}
+              disabled={Boolean(ctx.gameover)}
             />
           )}
         </td>
