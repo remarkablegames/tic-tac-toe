@@ -1,3 +1,5 @@
+import { Move } from './moves';
+
 export const ai = {
   enumerate,
 };
@@ -7,7 +9,7 @@ function enumerate(G, ctx) {
 
   for (let i = 0; i < 9; i++) {
     if (G.cells[i] === null) {
-      moves.push({ move: 'clickCell', args: [i] });
+      moves.push({ move: Move.ClickCell, args: [i] });
     }
   }
 

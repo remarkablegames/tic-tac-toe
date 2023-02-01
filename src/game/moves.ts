@@ -1,7 +1,11 @@
 import { INVALID_MOVE } from 'boardgame.io/core';
 
+export enum Move {
+  ClickCell = 'ClickCell',
+}
+
 export const moves = {
-  clickCell,
+  [Move.ClickCell]: clickCell,
 };
 
 function clickCell({ G, playerID }, id) {
