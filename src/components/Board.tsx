@@ -1,4 +1,4 @@
-import { Move } from './game';
+import { Move } from '../game';
 
 const cellStyle = {
   border: '1px solid #555',
