@@ -2,10 +2,16 @@ import { Move } from './game';
 
 const cellStyle = {
   border: '1px solid #555',
+  fontFamily: 'Helvetica, Arial',
   width: '50px',
   height: '50px',
   lineHeight: '50px',
   textAlign: 'center',
+};
+
+const numberToLetter = {
+  0: 'O',
+  1: 'X',
 };
 
 export default function TicTacToeBoard({ ctx, G, moves }) {
@@ -14,9 +20,9 @@ export default function TicTacToeBoard({ ctx, G, moves }) {
   if (ctx.gameover) {
     winner =
       ctx.gameover.winner !== undefined ? (
-        <div>Winner: {ctx.gameover.winner}</div>
+        <p>Winner: {ctx.gameover.winner}</p>
       ) : (
-        <div>Draw!</div>
+        <p>Draw!</p>
       );
   }
 
@@ -31,7 +37,7 @@ export default function TicTacToeBoard({ ctx, G, moves }) {
       cells.push(
         <td key={id}>
           {G.cells[id] ? (
-            <div style={cellStyle}>{G.cells[id]}</div>
+            <div style={cellStyle}>{numberToLetter[G.cells[id]]}</div>
           ) : (
             <button
               style={cellStyle}
