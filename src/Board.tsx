@@ -1,5 +1,7 @@
+import { Move } from './game';
+
 export default function TicTacToeBoard({ ctx, G, moves }) {
-  const onClick = (id) => moves.clickCell(id);
+  const onClick = (id) => moves[Move.ClickCell](id);
 
   let winner = '';
   if (ctx.gameover) {
