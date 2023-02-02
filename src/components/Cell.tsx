@@ -13,7 +13,7 @@ const numberToLetter = {
 };
 
 interface Props {
-  children: string;
+  children: 0 | 1 | null;
   disabled: boolean;
   onClick: () => void;
 }
@@ -21,14 +21,16 @@ interface Props {
 export default function Cell(props) {
   let node;
 
-  if (props.children) {
-    node = <div style={cellStyle}>{numberToLetter[props.children]}</div>;
+  if (props.children === null) {
+    node = (
+      <button
+        style={cellStyle}
+        onClick={props.onClick}
+        disabled={props.disabled}
+      />
+    );
   } else {
-    <button
-      style={cellStyle}
-      onClick={props.onClick}
-      disabled={props.disabled}
-    />;
+    node = <div style={cellStyle}>{numberToLetter[props.children]}</div>;
   }
 
   return <td>{node}</td>;

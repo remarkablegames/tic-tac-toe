@@ -1,14 +1,16 @@
 import { Move } from '../game';
 import Cell from './Cell';
 
+const gridSize = 3;
+
 export default function Grid({ ctx, G, moves }) {
   const tbody = [];
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < gridSize; i++) {
     const cells = [];
 
-    for (let j = 0; j < 3; j++) {
-      const id = 3 * i + j;
+    for (let j = 0; j < gridSize; j++) {
+      const id = gridSize * i + j;
 
       cells.push(
         <Cell
@@ -16,7 +18,7 @@ export default function Grid({ ctx, G, moves }) {
           key={id}
           onClick={() => moves[Move.ClickCell](id)}
         >
-          {id}
+          {G.cells[id]}
         </Cell>
       );
     }
