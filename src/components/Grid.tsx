@@ -1,18 +1,5 @@
 import { Move } from '../game';
-
-const cellStyle = {
-  border: '1px solid #555',
-  fontFamily: 'Helvetica, Arial',
-  width: '50px',
-  height: '50px',
-  lineHeight: '50px',
-  textAlign: 'center',
-};
-
-const numberToLetter = {
-  0: 'O',
-  1: 'X',
-};
+import Cell from './Cell';
 
 export default function Grid({ ctx, G, moves }) {
   const tbody = [];
@@ -24,17 +11,13 @@ export default function Grid({ ctx, G, moves }) {
       const id = 3 * i + j;
 
       cells.push(
-        <td key={id}>
-          {G.cells[id] ? (
-            <div style={cellStyle}>{numberToLetter[G.cells[id]]}</div>
-          ) : (
-            <button
-              style={cellStyle}
-              onClick={() => moves[Move.ClickCell](id)}
-              disabled={Boolean(ctx.gameover)}
-            />
-          )}
-        </td>
+        <Cell
+          disabled={Boolean(ctx.gameover)}
+          key={id}
+          onClick={() => moves[Move.ClickCell](id)}
+        >
+          {id}
+        </Cell>
       );
     }
 
