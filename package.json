@@ -15,7 +15,7 @@
     "buffer": "^6.0.3",
     "parcel": "^2.16.4",
     "process": "^0.11.10",
-    "react": "^19.2.6",
+    "react": "^19.2.7",
     "react-dom": "^19.2.6",
     "typescript": "^6.0.3"
   },
